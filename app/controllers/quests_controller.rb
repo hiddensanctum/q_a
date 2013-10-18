@@ -38,6 +38,10 @@ class QuestsController < ApplicationController
   # GET /quests/1/edit
   def edit
     @quest = Quest.find(params[:id])
+    if @quest.save
+      current_user.quests << @quest
+    end
+
   end
 
   # POST /quests
