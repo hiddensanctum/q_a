@@ -1,0 +1,25 @@
+<h1>Listing Questions</h1>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Answer</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @quests.each do |quest| %>
+  <tr>
+    <td><%= quest.question %></td>
+    <td><%= quest.answer %></td>
+    <td><%= link_to 'Show', quest %></td>
+    <td><%= link_to 'Edit', edit_quest_path(quest) %></td>
+    <td><%= link_to 'Destroy', quest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Question', new_quest_path %>
